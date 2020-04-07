@@ -17,5 +17,19 @@ namespace GPS
         {
             InitializeComponent();
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            //var myPage1 = new Page1();
+            //var navigationPage = new NavigationPage(myPage1);
+            ////MainPage = navigationPage;
+            //NavigationPage
+            await Navigation.PushAsync(new Page1());
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Page2());
+        }
     }
 }

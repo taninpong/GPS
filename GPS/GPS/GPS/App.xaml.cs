@@ -10,7 +10,11 @@ namespace GPS
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //var myPage1 = new MyPage1();
+            MainPage = new NavigationPage(new MainPage());
+            //MainPage = navigationPage;
+
+            //MainPage = new MainPage();
         }
 
         protected override void OnStart()

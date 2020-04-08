@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace GPS
@@ -30,6 +31,19 @@ namespace GPS
         private void Button_Clicked_1(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Page2());
+        }
+
+        private async void Button_Clicked_2(object sender, EventArgs e)
+        {
+            var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(6));
+            var x = await Geolocation.GetLocationAsync(request);
+            //var location = await Geolocation.GetLastKnownLocationAsync();
+            var location2 = new Location(16.43307340526658, 102.8255601788635);// central
+
+            //TODO open navigation 
+            var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+            var data = Xamarin.Essentials.Map.OpenAsync(location2, options);
+            //Navigation.PushAsync(new Page3());
         }
     }
 }

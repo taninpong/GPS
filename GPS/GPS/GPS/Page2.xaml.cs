@@ -109,8 +109,7 @@ namespace GPS
                 Position positionx = new Position(location.Latitude, location.Longitude);
                 map.MoveToRegion(new MapSpan(positionx, 0.1, 0.1));
                 //this.mapapi = map;
-                //Content = map;
-                this.demox = map;
+                Content = map;
 
                 //map.Pins.Add(new Pin
                 //{

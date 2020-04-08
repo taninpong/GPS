@@ -11,8 +11,9 @@
         <Label Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
-        <Button Text="Gopage1" Clicked="Button_Clicked"></Button>
-        <Button Text="Gopage2" Clicked="Button_Clicked_1"></Button>
+        <Button Text="GetLatLong" Clicked="Button_Clicked"></Button>
+        <Button Text="OpenMap" Clicked="Button_Clicked_1"></Button>
+        <Button Text="OpenGoogleMap" Clicked="Button_Clicked_2"></Button>
     </StackLayout>
 
 </ContentPage>

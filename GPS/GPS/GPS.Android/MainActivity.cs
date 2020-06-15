@@ -30,7 +30,7 @@ namespace GPS.Droid
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             LocationManager LM = (LocationManager)Android.App.Application.Context.GetSystemService(Context.LocationService);
-            if (LM.IsProviderEnabled(LocationManager.GpsProvider) == false)
+            if (LM.IsProviderEnabled(LocationManager.GpsProvider) == false || grantResults[0] == Permission.Denied)
             {
                 Intent intent = new Intent(Android.Provider.Settings.ActionLocationSourceSettings);
                 intent.AddFlags(ActivityFlags.NewTask);
@@ -39,5 +39,6 @@ namespace GPS.Droid
             }
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
     }
 }

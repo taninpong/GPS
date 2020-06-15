@@ -22,7 +22,7 @@
                 <Button Text="Reverse Geocode" Clicked="OnReverseGeocodeButtonClicked" Grid.Row="1" ></Button>
                 <Label x:Name="reverseGeocodedOutputLabel" Grid.Row="2" />
             </Grid>
-            <Grid Grid.Row="1" x:Name="demox">
+            <Grid Grid.Row="1">
                 <maps:Map x:Name="mapapi" IsShowingUser="true"  >
                 </maps:Map>
             </Grid>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="GPS.Getlocation">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="GPS" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Lat/Long"/>
+            <Label Text="DateStart : " x:Name="DateStart"/>
+            <Label x:Name="LabelLatLong"></Label>
+            <Label Text="DateEnd : " x:Name="DateEnd"/>
+            <Label Text="Address : " x:Name="DataAddress"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

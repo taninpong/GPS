@@ -14,6 +14,32 @@ namespace GPS
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        //protected async override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    try
+        //    {
+        //        DependencyService.Get<IGetGPS>().GetGPS();
+        //    }
+        //    catch (FeatureNotSupportedException fnsEx)
+        //    {
+        //        Console.WriteLine(fnsEx);
+        //    }
+        //    catch (FeatureNotEnabledException fneEx)
+        //    {
+        //        Console.WriteLine(fneEx);
+        //    }
+        //    catch (PermissionException pEx)
+        //    {
+        //        Console.WriteLine(pEx);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex);
+        //    }
+        //}
+
+
         public MainPage()
         {
             InitializeComponent();
@@ -44,6 +70,26 @@ namespace GPS
             var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
             var data = Xamarin.Essentials.Map.OpenAsync(location2, options);
             //Navigation.PushAsync(new Page3());
+        }
+
+        private void Button_Clicked_3(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Page3());
+        }
+
+        private  void GetStatus(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new DetailGPS());
+            //DependencyService.Get<IGetGPS>().GetGPS();
+            //var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            //var check = DependencyService.Get<IGetGPS>().CheckStatus();
+            //if (!check || status == PermissionStatus.Denied)
+            //{
+            //}
+            //else
+            //{
+            //    Navigation.PushAsync(new Getlocation());
+            //}
         }
     }
 }

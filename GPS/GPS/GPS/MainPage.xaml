@@ -11,9 +11,13 @@
         <Label Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+        <Label Text="DateEnd : " x:Name="check"/>
+        <Button Text="CheckStatus" Clicked="GetStatus"></Button>
+
         <Button Text="GetLatLong" Clicked="Button_Clicked"></Button>
         <Button Text="OpenMap" Clicked="Button_Clicked_1"></Button>
         <Button Text="OpenGoogleMap" Clicked="Button_Clicked_2"></Button>
+        <Button Text="OpenMapMarketCenter" Clicked="Button_Clicked_3"></Button>
     </StackLayout>
 
 </ContentPage>

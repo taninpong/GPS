@@ -8,6 +8,10 @@ using Android.Widget;
 using Android.OS;
 using Android.Locations;
 using Android.Content;
+using Xamarin.Essentials;
+using Android.Net;
+using Com.Xamarin.Formsviewgroup;
+using Xamarin.Forms;
 
 namespace GPS.Droid
 {
@@ -26,13 +30,25 @@ namespace GPS.Droid
             LoadApplication(new App());
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        public async override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             LocationManager LM = (LocationManager)Android.App.Application.Context.GetSystemService(Context.LocationService);
-            if (LM.IsProviderEnabled(LocationManager.GpsProvider) == false || grantResults[0] == Permission.Denied)
+            //|| grantResults[0] == Permission.Denied
+            if (LM.IsProviderEnabled(LocationManager.GpsProvider) == false)
             {
                 Intent intent = new Intent(Android.Provider.Settings.ActionLocationSourceSettings);
+                intent.AddFlags(ActivityFlags.NewTask);
+                intent.AddFlags(ActivityFlags.MultipleTask);
+                Android.App.Application.Context.StartActivity(intent);
+            }
+            //string permission = Android.Manifest.Permission.AccessFineLocation;
+            if (grantResults[0] == Permission.Denied)
+            {
+                //var x = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+                Intent intent = new Intent(Android.Provider.Settings.ActionApplicationDetailsSettings,
+                    Android.Net.Uri.Parse("package:" + Android.App.Application.Context.PackageName)
+                    );
                 intent.AddFlags(ActivityFlags.NewTask);
                 intent.AddFlags(ActivityFlags.MultipleTask);
                 Android.App.Application.Context.StartActivity(intent);
